@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     },
     "error": function (richiesta, stato, errori) {
-      alert("E' avvenuto un errore. " + errore);
+      alert("E' avvenuto un errore." + errore);
     }
 
   });
@@ -20,14 +20,16 @@ $(document).ready(function() {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
-    for(var i = 0; i < response.length; i++){
+    for(var i = 0; i < rispostaServer.length; i++){
+
+      var server = rispostaServer[i];
 
       var context = {
-        "poster" : music.poster,
-        "title" : music.title,
-        "author" : music.author,
-        "genre" : music.genre,
-        "year" : music.year
+        "poster" : server.poster,
+        "title" : server.title,
+        "author" : server.author,
+        "genre" : server.genre,
+        "year" : server.year
       };
 
       var html = template(context);
