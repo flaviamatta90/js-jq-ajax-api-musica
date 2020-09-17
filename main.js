@@ -8,7 +8,6 @@ $(document).ready(function() {
     "success": function (data, stato) {
       var rispostaServer = data.response;
       console.log(data.response);
-      musica(response);
 
     },
     "error": function (richiesta, stato, errori) {
@@ -17,13 +16,11 @@ $(document).ready(function() {
 
   });
 
-  function musica(){
+  function rispostaServer(){
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
     for(var i = 0; i < response.length; i++){
-
-      var music = music[i];
 
       var context = {
         "poster" : music.poster,
@@ -35,7 +32,7 @@ $(document).ready(function() {
 
       var html = template(context);
 
-      $('#add-cd').append(html);
+      $(".cds-container").append(html);
     }
   };
 
