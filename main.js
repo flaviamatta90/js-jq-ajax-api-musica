@@ -6,7 +6,8 @@ $(document).ready(function() {
     url: "https://flynn.boolean.careers/exercises/api/array/music",
     "method": "GET",
     "success": function (data, stato) {
-      var rispostaServer = data.response;
+      var response = data.response;
+      rispostaServer(response);
       console.log(data.response);
 
     },
@@ -16,20 +17,21 @@ $(document).ready(function() {
 
   });
 
-  function rispostaServer(){
+  function rispostaServer(server){
+
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
 
-    for(var i = 0; i < rispostaServer.length; i++){
+    for(var i = 0; i < server.length; i++){
 
-      var server = rispostaServer[i];
+      var album = server[i];
 
       var context = {
-        "poster" : server.poster,
-        "title" : server.title,
-        "author" : server.author,
-        "genre" : server.genre,
-        "year" : server.year
+        "poster" : album.poster,
+        "title" : album.title,
+        "author" : album.author,
+        "genre" : album.genre,
+        "year" : album.year
       };
 
       var html = template(context);
