@@ -17,6 +17,21 @@ $(document).ready(function() {
 
   });
 
+// scegliere il genere di musica
+  $(".genere").change(function() {
+    var select = $(this).val();
+
+    if(select == ""){
+      $(".cd").show();
+
+    }else {
+      $(".cd").hide();
+      $(".cd[data-genere='"+select+"']").show();
+    }
+
+  });
+
+// template-handlebars
   function rispostaServer(server){
 
     var source = $("#entry-template").html();
@@ -40,6 +55,24 @@ $(document).ready(function() {
     }
   };
 
+
+
+
+
+  // $(document).on('change', '#genere', function() {
+  //       var genre = $('#genere').val();
+  //       console.log(genre);
+  //       $('.cd').each(function(){
+  //         if ($(this).find('#genere').text() == genre) {
+  //           console.log($(this));
+  //           console.log($(this).find('#genere').text());
+  //           $(this).show();
+  //         } else {
+  //           $(this).hide();
+  //         }
+  //
+  //       });
+  //     });
 
 
 });

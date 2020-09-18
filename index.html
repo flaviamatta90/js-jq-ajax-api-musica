@@ -13,12 +13,12 @@
             <div class="container">
                 <img src="logo.png" alt="logo" />
 
-                <select id="genere">
+                <select class="genere">
+                  <option value="All">All</option>
+                  <option value="Jazz">Jazz</option>
+                  <option value="Metal">Metal</option>
                   <option value="Pop">Pop</option>
                   <option value="Rock">Rock</option>
-                  <option value="Metal">Metal</option>
-                  <option value="Jazz">Jazz</option>
-                  <option value="All">All</option>
                 </select>
             </div>
         </header>
@@ -26,11 +26,10 @@
         <div class="cds-container container"></div>
 
         <script id="entry-template" type="text/x-handlebars-template">
-        <div class="cd">
+        <div class="cd" data-genere="{{genre}}">
             <img src="{{poster}}" alt="">
             <h3>{{title}}</h3>
             <span class="author"> {{author}} </span>
-            <span> {{genre}} </span>
             <span class="year"> {{year}} </span>
         </div>
 
